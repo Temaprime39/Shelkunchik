@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Щелкунчик | Магазин орехов и сухофруктов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --color-primary: #8B4513;
+            --color-secondary: #D2691E;
+            --color-accent: #556B2F;
+            --color-bg: #FDFBF7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: #333;
+        }
+
+        h1, h2, h3, h4, .serif {
+            font-family: 'Merriweather', serif;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <i class="ri-nut-fill text-amber-700 text-2xl"></i>
+                    <span class="serif text-xl font-bold text-stone-800">Щелкунчик</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="tel:+79295792682" class="hidden md:flex items-center gap-2 text-amber-700 font-semibold hover:text-amber-800 transition">
+                        <i class="ri-phone-fill"></i>
+                        <span>+7 (929) 579-26-82</span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-stone-600 hover:text-stone-900 focus:outline-none">
+                        <i class="ri-menu-3-line text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="tel:+79295792682" class="flex items-center gap-2 text-amber-700 font-semibold px-3 py-2">
+                    <i class="ri-phone-fill"></i>
+                    <span>+7 (929) 579-26-82</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[80vh] min-h-[600px] flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/10acf7c74-91e5-4857-b0cf-f5c3fb170368.png" alt="Орехи и сухофрукты" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-white text-sm font-medium mb-6 border border-white/30">
+                <i class="ri-map-pin-line"></i>
+                Калининград
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+                Щелкунчик
+            </h1>
+            <p class="text-xl text-stone-100 mb-8 font-light max-w-2xl mx-auto">
+                Свежие орехи, снеки и сухофрукты. Натуральный вкус в каждом зернышке.
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+                <div class="bg-white/90 backdrop-blur px-6 py-3 rounded-lg shadow-lg flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                    <span class="text-stone-800 font-semibold">Ежедневно с 10:00 до 20:00</span>
+                </div>
+                
+                <div class="flex items-center gap-2 text-white bg-black/30 px-6 py-3 rounded-lg backdrop-blur-sm">
+                    <div class="flex text-yellow-400">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-half-fill"></i>
+                    </div>
+                    <span class="font-bold">4.2</span>
+                    <span class="text-stone-300 text-sm">(5 оценок)</span>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <a href="tel:+79295792682" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-xl">
+                    <i class="ri-phone-fill text-xl"></i>
+                    <span>+7 (929) 579-26-82</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features / About -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-100">
+                    <div class="w-12 h-12 mx-auto bg-amber-100 rounded-full flex items-center justify-center text-amber-700 mb-4">
+                        <i class="ri-truck-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Доставка продуктов</h3>
+                    <p class="text-stone-600 text-sm">Быстрая доставка свежих орехов прямо к вашему столу.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-100">
+                    <div class="w-12 h-12 mx-auto bg-green-100 rounded-full flex items-center justify-center text-green-700 mb-4">
+                        <i class="ri-gift-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Подарочные наборы</h3>
+                    <p class="text-stone-600 text-sm">Идеальный подарок для близких и коллег.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-100">
+                    <div class="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mb-4">
+                        <i class="ri-percent-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Скидки клиентам</h3>
+                    <p class="text-stone-600 text-sm">Специальные предложения для постоянных покупателей.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-800 mb-4">Товары и услуги</h2>
+                <p class="text-stone-600 max-w-2xl mx-auto">Наш ассортимент регулярно пополняется. Только свежие и качественные продукты.</p>
+            </div>
+
+            <!-- Category: Gift Sets -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+                    <i class="ri-gift-2-fill text-amber-600"></i> Подарочные наборы
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product 1 -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/1c0d4a64c-5a78-4fe1-a100-75818d2bfd50.png" alt="Подарочная корзина" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Подарочная корзина</h3>
+                            <p class="text-stone-600 text-sm mb-4">Изысканная корзина с отборными орехами и сухофруктами</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">3 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/154738f82-6e26-4946-bf0e-3bb70e4a34e6.png" alt="Ореховый набор большой" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Ореховый набор большой</h3>
+                            <p class="text-stone-600 text-sm mb-4">Ассорти премиальных орехов в деревянной миске</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">1 100 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/151301a37-c2fb-4e8c-b7d7-b3e9ef44f631.png" alt="Ореховый набор малый" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Ореховый набор малый</h3>
+                            <p class="text-stone-600 text-sm mb-4">Компактный набор отборных орехов в подарочной упаковке</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">350 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/1af4195d4-93c5-42a4-ba09-cc24d61fb847.png" alt="Подарочный набор" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Подарочный набор</h3>
+                            <p class="text-stone-600 text-sm mb-4">Элегантная коробка с орехами и сухофруктами</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">2 500 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/125622f84-1b51-48df-99b2-a5d66c8218ee.png" alt="Подарочный набор" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Подарочный набор</h3>
+                            <p class="text-stone-600 text-sm mb-4">Деревянный ящик с разделением на секции</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">1 600 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/173766968-e6af-4d47-a8fc-a5d821088887.png" alt="Корзина подарочная" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Корзина подарочная</h3>
+                            <p class="text-stone-600 text-sm mb-4">Плетёная корзина с разнообразными орехами</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">1 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Nuts -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+                    <i class="ri-plant-line text-amber-600"></i> Орехи
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Pecan Product -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/1a1bea469-57c5-487c-8ac7-cd7d1e737959.png" alt="Пекан" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Пекан в скорлупе отборный. Шоколадный</h3>
+                            <p class="text-stone-600 text-sm mb-4">Премиальный орех пекан в шоколадной глазури</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">1 000 ₽</span>
+                            </div>
+                            <p class="text-xs text-stone-500 mt-2">Цена ориентировочная, уточняйте по телефону</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Dried Fruits -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+                    <i class="ri-fruit-line text-amber-600"></i> Сухофрукты
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Mango -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/1bc8242f4-dfc0-483b-9491-2468d49765b5.png" alt="Манго сушеное" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Манго сушеное</h3>
+                            <p class="text-stone-600 text-sm mb-4">Натуральное сушёное манго без добавок</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">380 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Passion Fruit -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/1b0e42bf9-b696-4874-b6de-9155eb7ce26e.png" alt="Маракуйя сушеная" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Маракуйя сушеная</h3>
+                            <p class="text-stone-600 text-sm mb-4">Экзотическая сушёная маракуйя</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">450 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Papaya -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 transition-all duration-300">
+                        <div class="h-64 overflow-hidden bg-gray-100 relative group">
+                            <img src="https://image.qwenlm.ai/public_source/d3fcb912-8e12-4ddc-b8bb-fe1d47212dbe/1c2af67ce-dd04-45c8-81cf-e5514244f087.png" alt="Папайя сушеная" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-stone-800 mb-2">Папайя сушеная</h3>
+                            <p class="text-stone-600 text-sm mb-4">Сладкая сушёная папайя высшего качества</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-amber-700">450 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-stone-800 mb-2">Отзывы</h2>
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl font-bold text-stone-800">4.2</span>
+                        <div class="flex text-yellow-400 text-sm">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                        </div>
+                        <span class="text-stone-500 text-sm">на основе 5 оценок</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center text-amber-800 font-bold">Ю</div>
+                        <div>
+                            <h4 class="font-bold text-stone-800">Юли Е.</h4>
+                            <span class="text-xs text-stone-500 bg-stone-200 px-2 py-0.5 rounded-full">Знаток города 7 уровня</span>
+                        </div>
+                        <span class="ml-auto text-xs text-stone-400">17 ноября 2025</span>
+                    </div>
+                    <div class="flex text-yellow-400 text-xs mb-3">
+                        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                    </div>
+                    <p class="text-stone-600 leading-relaxed">
+                        Хороший магазин. Большой ассортимент. Постоянно пополнение. Есть скидки для постоянных клиентов. Доставка имеется. Цены приятные.
+                    </p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-bold">А</div>
+                        <div>
+                            <h4 class="font-bold text-stone-800">Андрей М.</h4>
+                            <span class="text-xs text-stone-500 bg-stone-200 px-2 py-0.5 rounded-full">Знаток города 15 уровня</span>
+                        </div>
+                        <span class="ml-auto text-xs text-stone-400">9 января</span>
+                    </div>
+                    <div class="flex text-yellow-400 text-xs mb-3">
+                        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-line"></i>
+                    </div>
+                    <p class="text-stone-600 leading-relaxed">
+                        Есть классные подарочные наборы с орехами. Отличный вариант для презента.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="contact" class="py-20 bg-stone-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Контакты</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                                <i class="ri-phone-line text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Телефон</h4>
+                                <a href="tel:+79295792682" class="text-amber-400 font-mono text-xl hover:text-amber-300 transition">
+                                    +7 (929) 579-26-82
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                                <i class="ri-time-line text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Время работы</h4>
+                                <p class="text-green-400 font-medium text-lg">Ежедневно с 10:00 до 20:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <a href="tel:+79295792682" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-xl">
+                            <i class="ri-phone-fill text-xl"></i>
+                            <span>Позвонить нам</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="h-[400px] bg-stone-800 rounded-2xl overflow-hidden relative group">
+                    <div class="absolute inset-0 flex items-center justify-center bg-stone-800">
+                         <div class="text-center">
+                            <i class="ri-map-2-line text-6xl text-stone-600 mb-4"></i>
+                            <p class="text-stone-400">Интерактивная карта</p>
+                            <button class="mt-4 bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition">
+                                Открыть в навигаторе
+                            </button>
+                         </div>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-amber-500 rounded-full border-4 border-white shadow-lg z-10 animate-bounce"></div>
+                    <svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0 20 Q 30 40 50 30 T 100 20" stroke="white" fill="none" stroke-width="0.5"/>
+                        <path d="M0 60 Q 40 80 60 70 T 100 60" stroke="white" fill="none" stroke-width="0.5"/>
+                        <path d="M20 0 Q 40 30 30 50 T 20 100" stroke="white" fill="none" stroke-width="0.5"/>
+                        <path d="M70 0 Q 60 40 80 60 T 70 100" stroke="white" fill="none" stroke-width="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-stone-950 text-stone-500 py-8 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 Магазин «Щелкунчик». Все права защищены.</p>
+            <p class="mt-2">Калининград</p>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/90', 'bg-white');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('bg-white', 'bg-white/90');
+            }
+        });
+    </script>
+</body>
+</html>
+
